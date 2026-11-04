@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>cozy days</title>
+  <meta name="description" content="Um cardápio de entretenimento para os momentos livres do dia.">
+  <meta name="theme-color" content="#ffc8dd">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23ffafcc'/%3E%3Ccircle cx='32' cy='32' r='17' fill='%23bde0fe'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topo">
+    <div class="marca">
+      <span class="logo" data-icon="coffee"></span>
+      <div>
+        <h1>cozy days</h1>
+        <p class="sub" id="saudacao">o que vai ser servido hoje?</p>
+      </div>
+    </div>
+    <div class="acoes-topo">
+      <button id="btn-surpresa" class="btn btn-rosa" type="button" data-icon="dado">me surpreenda</button>
+      <button id="btn-limpar" class="btn btn-suave" type="button" data-icon="reiniciar">limpar marcados</button>
+      <button id="btn-sync" class="btn-icone" type="button" title="Atualizar o cardápio do GitHub" aria-label="Atualizar o cardápio do GitHub" data-icon="atualizar"></button>
+      <button id="btn-som" class="btn-icone" type="button" title="Som ligado" aria-label="Som ligado" aria-pressed="true" data-icon="som"></button>
+      <button id="btn-mais" class="btn-icone btn-mais" type="button" title="Sincronização do cardápio" aria-label="Sincronização do cardápio" aria-haspopup="true" aria-expanded="false" aria-controls="painel-mais" data-icon="opcoes"><span id="ponto-sync" class="ponto" hidden></span></button>
+    </div>
+  </header>
+
+  <div id="painel-mais" class="painel" role="menu" hidden>
+    <p id="sync-status" class="sync-status"></p>
+    <button id="btn-baixar" class="item-menu" type="button" role="menuitem" data-icon="baixar">baixar menu.json</button>
+    <button id="btn-descartar" class="item-menu" type="button" role="menuitem" data-icon="atualizar">usar a versão do GitHub</button>
+  </div>
+
+  <main class="layout">
+    <section class="cardapio" aria-labelledby="t-cardapio">
+      <div class="secao-topo">
+        <h2 id="t-cardapio">cardápio</h2>
+        <form id="form-grupo" class="form-grupo">
+          <input id="grupo-nome" type="text" maxlength="60" placeholder="novo grupo (ex.: leituras)" aria-label="nome do novo grupo" required>
+          <button class="btn" type="submit" data-icon="mais">adicionar grupo</button>
+        </form>
+      </div>
+      <div id="grupos" class="grupos"></div>
+    </section>
+
+    <aside class="timers" aria-labelledby="t-timers">
+      <h2 id="t-timers"><span data-icon="timer"></span>timers</h2>
+      <form id="form-timer" class="form-timer">
+        <input id="timer-nome" type="text" maxlength="60" placeholder="nome do timer (opcional)" aria-label="nome do timer">
+        <div class="linha-min">
+          <input id="timer-min" type="number" min="1" max="1440" inputmode="numeric" placeholder="min" aria-label="duração em minutos">
+          <button class="btn btn-rosa" type="submit" data-icon="mais">criar timer</button>
+        </div>
+        <div class="presets" role="group" aria-label="durações rápidas">
+          <button type="button" class="chip" data-min="15">15 min</button>
+          <button type="button" class="chip" data-min="25">25 min</button>
+          <button type="button" class="chip" data-min="30">30 min</button>
+          <button type="button" class="chip" data-min="45">45 min</button>
+          <button type="button" class="chip" data-min="60">60 min</button>
+        </div>
+      </form>
+      <div id="lista-timers"></div>
+    </aside>
+  </main>
+
+  <footer class="rodape">
+    <p>feito com carinho · as marcações de "feito" e os timers ficam só neste navegador</p>
+  </footer>
+
+  <dialog id="dlg">
+    <form method="dialog">
+      <p id="dlg-msg"></p>
+      <div class="dlg-acoes">
+        <button value="cancel" class="btn btn-suave" autofocus>cancelar</button>
+        <button value="ok" id="dlg-ok" class="btn btn-rosa">excluir</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toasts" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
