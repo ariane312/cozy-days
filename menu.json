@@ -2,10 +2,9 @@
   "versao": 1,
   "grupos": [
     {
-      "titulo": "exemplo (pode apagar)",
+      "titulo": "curiosidades",
       "itens": [
-        { "texto": "1 hora de leitura da obra X", "minutos": 60 },
-        { "texto": "Ouvir podcast de true crime do autor Y", "minutos": 40 }
+        { "texto": "caligrafia japonesa", "minutos": 30 },
       ]
     }
   ]
