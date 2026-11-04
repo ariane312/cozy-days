@@ -328,7 +328,7 @@ function renderMenu() {
   if (!menu.grupos.length) {
     c.append(el('div', { class: 'vazio' },
       ico('coffee'),
-      el('p', {}, 'Seu cardápio ainda está vazio.'),
+      el('p', {}, 'Seu menu ainda está vazio.'),
       el('p', { class: 'suave' }, 'Crie o primeiro grupo acima, por exemplo "leituras" ou "podcasts".')));
     return;
   }
