@@ -783,7 +783,7 @@ function iniciarRelogio(cb) {
 function saudacao() {
   const h = new Date().getHours();
   const s = h < 5 ? 'boa madrugada' : h < 12 ? 'bom dia' : h < 18 ? 'boa tarde' : 'boa noite';
-  $('#saudacao').textContent = `${s} · o que vai ser servido agora?`;
+  $('#saudacao').textContent = `${s} · home is where the cozy moments are made.`;
 }
 
 function ligarEventos() {
