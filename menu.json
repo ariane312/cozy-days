@@ -1,0 +1,12 @@
+{
+  "versao": 1,
+  "grupos": [
+    {
+      "titulo": "curiosidades",
+      "itens": [
+        { "texto": "caligrafia japonesa", "minutos": 30 },
+	{ "texto": "ouvir 1 capítulo do livro Hábitos Atômicos", "minutos": 30 },
+      ]
+    }
+  ]
+}
